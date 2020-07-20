@@ -1,0 +1,1 @@
+# Initial Spring Boot project setup for using OAuth2 with JWT

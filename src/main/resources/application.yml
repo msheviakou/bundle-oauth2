@@ -1,0 +1,33 @@
+server:
+  port: ${SERVER_PORT:8013}
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/bundleoauth2}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+  jpa:
+    properties:
+      hibernate:
+        default_schema: public
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${GOOGLE_APP_ID:962735217743-tqshueje46e7q6k10v02ugjjtvaje599.apps.googleusercontent.com}
+            clientSecret: ${GOOGLE_APP_SECRET:HU6GUUkCQWNAuIeccalWSpqt}
+            redirectUri: ${GOOGLE_APP_CALLBACK:{baseUrl}/oauth2/callback/{registrationId}}
+            scope:
+              - email
+              - profile
+
+jwt:
+  accessTokenSecretKey: ${ACCESS_TOKEN_SECRET_KEY:access}
+  refreshTokenSecretKey: ${REFRESH_TOKEN_SECRET_KEY:refresh}
+  accessTokenValidityInMilliseconds: ${ACCESS_TOKEN_VALIDITY:3600000}
+  refreshTokenValidityInMilliseconds: ${REFRESH_TOKEN_VALIDITY:36000000}
+
+oauth2:
+  authorizedRedirectUri: ${AUTHORIZED_REDIRECT_URI:http://localhost:4200/oauth2}
+

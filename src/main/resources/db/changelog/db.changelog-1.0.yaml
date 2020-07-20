@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 26-05-2020
+      author: Maksim Sheviakou
+      changes:
+      - sqlFile:
+          dbms: postgresql
+          encoding: utf8
+          path: ../scripts/dump.sql
+          relativeToChangelogFile: true
+          stripComments: true
